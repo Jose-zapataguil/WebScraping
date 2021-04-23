@@ -67,7 +67,7 @@ public class Procesador {
 
     public List procesarHTML() {
         List<String[]> procesado = new ArrayList<String[]>();
-        File f = new File("index.html");
+        File f = new File("fichero.html");
         try {
             org.jsoup.nodes.Document doc = Jsoup.parse(f, "UTF-8");
             org.jsoup.nodes.Element div = doc.getElementById("articleListContent");
@@ -96,9 +96,6 @@ public class Procesador {
                     items.add(articulo.getElementsByClass("c-star-rating__text cy-product-text").text());
                 }
                 String[] result = items.toArray(new String[0]);
-                for (int i = 0; i < result.length; i++) {
-                    System.out.println(result[i]);
-                }
                 procesado.add(result);
             }
         } catch (IOException e) {
