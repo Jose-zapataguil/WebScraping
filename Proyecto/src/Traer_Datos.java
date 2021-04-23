@@ -14,7 +14,7 @@ public class Traer_Datos {
     public void traerDatos(){
 
     try{
-        URL html = new URL("https://www.laopiniondemurcia.es/");
+        URL html = new URL("https://www.pccomponentes.com/procesadores");
         URL xml = new URL("https://www.laopiniondemurcia.es/rss");
 
         File fhtml = new File("fichero.html");
