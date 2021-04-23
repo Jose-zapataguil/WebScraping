@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.*;
 import java.nio.charset.Charset;
-import java.util.zip.CheckedOutputStream;
+
 
 
 public class Traer_Datos {
@@ -16,10 +16,10 @@ public class Traer_Datos {
     public void traerDatos(){
 
     try{
+        URL xml = new URL("https://www.laopiniondemurcia.es/rss");
         URLConnection conexion = new URL("https://www.pccomponentes.com/procesadores").openConnection();
         conexion.addRequestProperty("User-Agent", "Mozilla");
         conexion.connect();
-        URL xml = new URL("https://www.laopiniondemurcia.es/rss");
 
         File fhtml = new File("fichero.html");
         File fxml = new File("fichero.xml");
