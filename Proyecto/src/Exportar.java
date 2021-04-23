@@ -10,7 +10,7 @@ import java.util.Iterator;
 public class Exportar {
 
 
-    public static void ExportarCSV(List<String[]> procesado) {
+    public static void exportarCSV(List<String[]> procesado) {
 
         String archivoCSV = "C:\\archivo.csv";
 
