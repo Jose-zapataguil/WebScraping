@@ -16,7 +16,6 @@ public class Traer_Datos {
     public void traerDatos(){
 
     try{
-
         URL xml = new URL("https://www.laopiniondemurcia.es/rss");
         URLConnection conexion = new URL("https://www.pccomponentes.com/procesadores").openConnection();
         conexion.addRequestProperty("User-Agent", "Mozilla");
