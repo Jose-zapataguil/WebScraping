@@ -28,8 +28,7 @@ public class Main {
             datos = p.procesarHTMLDecathlon();
         }
         Exportar ex = new Exportar();
-        ex.exportarCSV(datos);
-
+        ex.exportarCSV(datos, num);
     }
 
 }
