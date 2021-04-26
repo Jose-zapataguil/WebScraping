@@ -1,6 +1,4 @@
-
 import com.csvreader.CsvWriter;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Iterator;
@@ -16,7 +14,6 @@ public class Exportar {
         try {
 
             CsvWriter writer = new CsvWriter(archivoCSV);
-
             writer.write("Titulo");
             writer.write("Creador");
             writer.write("Fecha de publicacion");
