@@ -44,6 +44,17 @@ Deberia quedar de esta manera.
 
 ## Funcionamiento
 
+Para explicar el funcionamiento del programa lo vamos a dividir en las 3 funcionalidades principales:
+
+-Obtención de datos:
+  
+  Establecemos la conexión con el sitio web. Creamos un BufferedReader a traves de dicha conexión y un BufferedWriter con el fichero en el que vamos a guardar la información.
+  Mediante un bucle, vamos leyendo la información del sitio y guardandola en nuestro fichero. Cerramos la conexión y mostramos un mensaje de exito.
+
+-Procesado de datos.
+
+-Exportación de datos.
+
 ## Prueba de ejecución
 
 
