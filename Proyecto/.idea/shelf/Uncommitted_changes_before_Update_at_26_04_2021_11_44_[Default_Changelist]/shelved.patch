@@ -1,0 +1,70 @@
+Index: src/Exportar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nimport com.csvreader.CsvWriter;\r\nimport java.io.IOException;\r\nimport java.util.List;\r\nimport java.util.Iterator;\r\n\r\n\r\n\r\n\r\npublic class Exportar {\r\n\r\n\r\n    public static void exportarCSV(List<String[]> procesado) {\r\n\r\n        String archivoCSV = \"C:\\\\archivo.csv\";\r\n\r\n        try {\r\n\r\n            CsvWriter writer = new CsvWriter(archivoCSV);\r\n\r\n            writer.write(\"Título\");\r\n            writer.write(\"Creador\");\r\n            writer.write(\"Fecha de publicación\");\r\n            writer.write(\"Categoría\");\r\n\r\n\r\n            writer.endRecord();\r\n\r\n\r\n            Iterator i = procesado.iterator();\r\n            while(i.hasNext())\r\n            {\r\n                writer.write(i.next().toString());\r\n                writer.endRecord();\r\n            }\r\n\r\n            writer.close();\r\n\r\n\r\n        } catch(IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Exportar.java b/src/Exportar.java
+--- a/src/Exportar.java	(revision 04a8d7a291edbeae162f4cf66bfcc2fe27ecdabd)
++++ b/src/Exportar.java	(date 1619429202283)
+@@ -10,7 +10,7 @@
+ public class Exportar {
+ 
+ 
+-    public static void exportarCSV(List<String[]> procesado) {
++    public static void exportarCSV(List<String[]> procesado, int numero) {
+ 
+         String archivoCSV = "C:\\archivo.csv";
+ 
+@@ -18,20 +18,41 @@
+ 
+             CsvWriter writer = new CsvWriter(archivoCSV);
+ 
+-            writer.write("Título");
+-            writer.write("Creador");
+-            writer.write("Fecha de publicación");
+-            writer.write("Categoría");
+-
+-
+-            writer.endRecord();
++            if (numero==4) {
++
++                writer.write("Título");
++                writer.write("Creador");
++                writer.write("Fecha de publicación");
++                writer.write("Categoría");
++                writer.endRecord();
++            }
++
++            else if (numero==8){
++
++                writer.write("Categoría");
++                writer.write("Marca");
++                writer.write("Nombre");
++                writer.write("Precio");
++                writer.write("Envío gratis");
++                writer.write("Promoción");
++                writer.write("Número de valoraciones");
++                writer.write("Media de valoraciones");
++                writer.endRecord();
++            }
+ 
++            int aux= numero;
+ 
+             Iterator i = procesado.iterator();
+             while(i.hasNext())
+-            {
++            {   if(aux==0){
++                aux=numero;
++                writer.endRecord();
+                 writer.write(i.next().toString());
+-                writer.endRecord();
++                numero--;}
++
++                else {
++                writer.write(i.next().toString());
++                numero--;}
+             }
+ 
+             writer.close();

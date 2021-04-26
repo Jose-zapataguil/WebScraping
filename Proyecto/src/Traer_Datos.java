@@ -13,11 +13,12 @@ public class Traer_Datos {
 
     }
 
-    public void traerDatos(){
+    public void traerDatos(String _xml, String _html){
 
     try{
-        URL xml = new URL("https://www.laopiniondemurcia.es/rss");
-        URLConnection conexion = new URL("https://www.pccomponentes.com/procesadores").openConnection();
+
+        URL xml = new URL(_xml);
+        URLConnection conexion = new URL(_html).openConnection();
         conexion.addRequestProperty("User-Agent", "Mozilla");
         conexion.connect();
 

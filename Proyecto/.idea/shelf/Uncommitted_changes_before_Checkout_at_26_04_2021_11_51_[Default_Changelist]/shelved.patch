@@ -1,0 +1,70 @@
+Index: src/Exportar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nimport com.csvreader.CsvWriter;\r\n\r\nimport java.io.IOException;\r\nimport java.util.List;\r\nimport java.util.Iterator;\r\n\r\n\r\npublic class Exportar {\r\n\r\n\r\n    public void exportarCSV(List<String[]> procesado) {\r\n\r\n        String archivoCSV = \"archivo.csv\";\r\n\r\n        try {\r\n\r\n            CsvWriter writer = new CsvWriter(archivoCSV);\r\n\r\n            writer.write(\"Titulo\");\r\n            writer.write(\"Creador\");\r\n            writer.write(\"Fecha de publicacion\");\r\n            writer.write(\"Categoria\");\r\n\r\n\r\n            writer.endRecord();\r\n\r\n            for (int i = 0; i < procesado.size(); i++) {\r\n                for (int j = 0; j < procesado.get(i).length; j++) {\r\n                    writer.write(procesado.get(i)[j]);\r\n                }\r\n                writer.endRecord();\r\n            }\r\n            writer.close();\r\n\r\n\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Exportar.java b/src/Exportar.java
+--- a/src/Exportar.java	(revision 6f9d56240d3c28c32f83b184d6a1d172d8bfd75e)
++++ b/src/Exportar.java	(date 1619430494298)
+@@ -1,15 +1,16 @@
+ 
+ import com.csvreader.CsvWriter;
+-
+ import java.io.IOException;
+ import java.util.List;
+ import java.util.Iterator;
+ 
+ 
++
++
+ public class Exportar {
+ 
+ 
+-    public void exportarCSV(List<String[]> procesado) {
++    public void exportarCSV(List<String[]> procesado, int numero) {
+ 
+         String archivoCSV = "archivo.csv";
+ 
+@@ -24,6 +25,27 @@
+ 
+ 
+             writer.endRecord();
++            if (numero==1) {
++
++                writer.write("Título");
++                writer.write("Creador");
++                writer.write("Fecha de publicación");
++                writer.write("Categoría");
++                writer.endRecord();
++            }
++
++            else if (numero==2){
++
++                writer.write("Categoría");
++                writer.write("Marca");
++                writer.write("Nombre");
++                writer.write("Precio");
++                writer.write("Envío gratis");
++                writer.write("Promoción");
++                writer.write("Número de valoraciones");
++                writer.write("Media de valoraciones");
++                writer.endRecord();
++            }
+ 
+             for (int i = 0; i < procesado.size(); i++) {
+                 for (int j = 0; j < procesado.get(i).length; j++) {
+@@ -31,10 +53,11 @@
+                 }
+                 writer.endRecord();
+             }
++
+             writer.close();
+ 
+ 
+-        } catch (IOException e) {
++        } catch(IOException e) {
+             e.printStackTrace();
+         }
+     }
