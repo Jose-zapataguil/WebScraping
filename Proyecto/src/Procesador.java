@@ -57,6 +57,7 @@ public class Procesador {
                     procesado.add(result);
                 }
             }
+            f.delete();
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
@@ -102,6 +103,7 @@ public class Procesador {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        f.delete();
         return procesado;
     }
 
@@ -137,6 +139,7 @@ public class Procesador {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        f.delete();
         return procesado;
     }
 }

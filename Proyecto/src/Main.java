@@ -26,6 +26,8 @@ public class Main {
         } else if (num == 3) {
             td.traerDatos("", "https://www.decathlon.es/es/special-page/product-gender-hombre/_/N-1hhmrozZ1dph4y0");
             datos = p.procesarHTMLDecathlon();
+        }else{
+            System.exit(0);
         }
         Exportar ex = new Exportar();
         ex.exportarCSV(datos, num);
