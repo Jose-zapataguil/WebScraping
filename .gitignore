@@ -31,3 +31,6 @@ out/
 
 # Generated files
 .idea/**/contentModel.xml
+
+# File-based project format
+*.iws

@@ -107,7 +107,7 @@ public class Procesador {
 
     public List<String[]> procesarHTMLDecathlon() {
         List<String[]> procesado = new ArrayList<>();
-        File f = new File("fichero2.html");
+        File f = new File("fichero.html");
         try {
             org.jsoup.nodes.Document doc = Jsoup.parse(f, "UTF-8");
             org.jsoup.nodes.Element div = doc.getElementById("in-product-list");
