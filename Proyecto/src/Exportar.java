@@ -1,7 +1,7 @@
 import com.csvreader.CsvWriter;
 import java.io.IOException;
 import java.util.List;
-import java.util.Iterator;
+
 
 
 public class Exportar {
@@ -34,11 +34,20 @@ public class Exportar {
             writer.endRecord();
             }
 
+            else if(numero==3){
+            writer.write("Categoria");
+            writer.write("Marca");
+            writer.write("Nombre del producto");
+            writer.write("Precio");
+            writer.write("Opiniones");
+            writer.write("Disponible");
+            writer.endRecord();
+            }
 
 
-            for (int i = 0; i < procesado.size(); i++) {
-                for (int j = 0; j < procesado.get(i).length; j++) {
-                    writer.write(procesado.get(i)[j]);
+            for (String[] strings : procesado) {
+                for (String string : strings) {
+                    writer.write(string);
                 }
                 writer.endRecord();
             }
