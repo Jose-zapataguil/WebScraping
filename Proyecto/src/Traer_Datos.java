@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.*;
 import java.nio.charset.Charset;
-
+import java.nio.charset.StandardCharsets;
 
 
 public class Traer_Datos {
@@ -40,9 +40,9 @@ public class Traer_Datos {
 
             File fxml = new File("fichero.xml");
 
-            BufferedReader bf_xml = new BufferedReader(new InputStreamReader(xml.openStream()));
+            BufferedReader bf_xml = new BufferedReader(new InputStreamReader(xml.openStream(), StandardCharsets.UTF_8));
 
-            BufferedWriter bw_xml = new BufferedWriter(new FileWriter(fxml));
+            BufferedWriter bw_xml = new BufferedWriter(new FileWriter(fxml,StandardCharsets.UTF_8));
             String linea2;
             while ((linea2 = bf_xml.readLine()) != null) {
                 bw_xml.write(linea2);

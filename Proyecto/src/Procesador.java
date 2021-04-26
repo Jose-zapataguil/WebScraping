@@ -21,7 +21,7 @@ import java.util.Locale;
 public class Procesador {
 
     public List<String[]> procesarRSS() {
-        DateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH);
+        DateFormat format = new SimpleDateFormat("EEE, dd MMM yy HH:mm:ss zzz", Locale.ENGLISH);
         DateFormat fecha = new SimpleDateFormat("dd/MM/yyyy");
         DateFormat hora = new SimpleDateFormat("HH:mm:ss");
         List<String[]> procesado = new ArrayList<>();
