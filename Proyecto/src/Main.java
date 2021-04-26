@@ -10,6 +10,7 @@ public class Main {
         List<String[]> datos = p.procesarRSS();
         Exportar ex = new Exportar();
         ex.exportarCSV(datos);
+
     }
 
 }
