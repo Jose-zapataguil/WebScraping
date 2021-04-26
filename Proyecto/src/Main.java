@@ -7,7 +7,7 @@ public class Main {
         Traer_Datos td = new Traer_Datos();
         td.traerDatos("","");
         Procesador p = new Procesador();
-        List<String[]> datos = p.procesarHTML();
+        List<String[]> datos = p.procesarHTMLPc();
     }
 
 }

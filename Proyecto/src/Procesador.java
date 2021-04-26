@@ -20,11 +20,11 @@ import java.util.Locale;
 
 public class Procesador {
 
-    public List procesarRSS() {
+    public List<String[]> procesarRSS() {
         DateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH);
         DateFormat fecha = new SimpleDateFormat("dd/MM/yyyy");
         DateFormat hora = new SimpleDateFormat("HH:mm:ss");
-        List<String[]> procesado = new ArrayList<String[]>();
+        List<String[]> procesado = new ArrayList<>();
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -33,7 +33,7 @@ public class Procesador {
             doc.getDocumentElement().normalize();
             NodeList listaNodos = doc.getElementsByTagName("item");
             for (int i = 0; i < listaNodos.getLength(); i++) {
-                ArrayList<String> item = new ArrayList();
+                ArrayList<String> item = new ArrayList<>();
                 Node nodo = listaNodos.item(i);
                 if (nodo.getNodeType() == Node.ELEMENT_NODE) {
                     Element e = (Element) nodo;
@@ -65,15 +65,16 @@ public class Procesador {
         return procesado;
     }
 
-    public List procesarHTML() {
-        List<String[]> procesado = new ArrayList<String[]>();
-        File f = new File("index.html");
+    public List<String[]> procesarHTMLPc() {
+        List<String[]> procesado = new ArrayList<>();
+        File f = new File("fichero.html");
         try {
             org.jsoup.nodes.Document doc = Jsoup.parse(f, "UTF-8");
             org.jsoup.nodes.Element div = doc.getElementById("articleListContent");
             Elements articulos = div.getElementsByClass("c-product-card");
             for (org.jsoup.nodes.Element articulo : articulos) {
-                ArrayList<String> items = new ArrayList();
+                ArrayList<String> items = new ArrayList<>();
+                items.add(articulo.attr("data-category"));
                 items.add(articulo.attr("data-brand"));
                 items.add(articulo.attr("data-name"));
                 items.add(articulo.attr("data-price"));
@@ -96,11 +97,43 @@ public class Procesador {
                     items.add(articulo.getElementsByClass("c-star-rating__text cy-product-text").text());
                 }
                 String[] result = items.toArray(new String[0]);
-                for (int i = 0; i < result.length; i++) {
-                    System.out.println(result[i]);
-                }
                 procesado.add(result);
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return procesado;
+    }
+
+    public List<String[]> procesarHTMLDecathlon() {
+        List<String[]> procesado = new ArrayList<>();
+        File f = new File("fichero2.html");
+        try {
+            org.jsoup.nodes.Document doc = Jsoup.parse(f, "UTF-8");
+            org.jsoup.nodes.Element div = doc.getElementById("in-product-list");
+            Elements articulos = div.getElementsByClass("dkt-product js-product-slider-init");
+            for (org.jsoup.nodes.Element articulo : articulos) {
+                ArrayList<String> items = new ArrayList<>();
+                items.add(articulo.attr("data-vada-family"));
+                items.add(articulo.getElementsByClass("dkt-product__brand").get(0).child(0).text());
+                items.add(articulo.getElementsByClass("dkt-product__title").text());
+                items.add(articulo.getElementsByClass("dkt-price__cartridge").attr("data-price"));
+                String valoraciones = articulo.getElementsByClass("dkt-product__review-count").text();
+                if (valoraciones.isEmpty()){
+                    items.add("0");
+                }else{
+                    items.add(valoraciones.substring(1,valoraciones.lastIndexOf(')')));
+                }
+                String disponibilidad = articulo.getElementsByClass("dkt-product__availability").text();
+                if (disponibilidad.equals("Este producto no está disponible online.")){
+                    items.add("0");
+                }else{
+                    items.add("1");
+                }
+                String[] result = items.toArray(new String[0]);
+                procesado.add(result);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
