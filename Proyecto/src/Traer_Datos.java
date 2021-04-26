@@ -16,35 +16,41 @@ public class Traer_Datos {
     public void traerDatos(String _xml, String _html){
 
     try{
+        //HTML
 
-        URL xml = new URL(_xml);
-        URLConnection conexion = new URL(_html).openConnection();
-        conexion.addRequestProperty("User-Agent", "Mozilla");
-        conexion.connect();
+        if (_xml.equals("")) {
 
-        File fhtml = new File("fichero.html");
-        File fxml = new File("fichero.xml");
+            URLConnection conexion = new URL(_html).openConnection();
+            conexion.addRequestProperty("User-Agent", "Mozilla");
+            conexion.connect();
+            File fhtml = new File("fichero.html");
+            BufferedReader bf_html = new BufferedReader(new InputStreamReader(conexion.getInputStream(), Charset.forName("UTF-8")));
+            BufferedWriter bw_html = new BufferedWriter(new FileWriter(fhtml));
+            String linea;
+            while ((linea = bf_html.readLine()) != null) {
+                bw_html.write(linea);
+            }
+            bf_html.close();
+            bw_html.close();
+            System.out.println("Fichero html creado correctamente");
+        } else {
+            //XML
+            URL xml = new URL(_xml);
 
-        BufferedReader bf_html = new BufferedReader(new InputStreamReader(conexion.getInputStream(), Charset.forName("UTF-8")));
-        BufferedReader bf_xml = new BufferedReader(new InputStreamReader(xml.openStream()));
 
-        BufferedWriter bw_html = new BufferedWriter(new FileWriter(fhtml));
-        BufferedWriter bw_xml = new BufferedWriter(new FileWriter(fxml));
-        String linea;
-        while((linea = bf_html.readLine())!=null){
-            bw_html.write(linea);
+            File fxml = new File("fichero.xml");
+
+            BufferedReader bf_xml = new BufferedReader(new InputStreamReader(xml.openStream()));
+
+            BufferedWriter bw_xml = new BufferedWriter(new FileWriter(fxml));
+            String linea2;
+            while ((linea2 = bf_xml.readLine()) != null) {
+                bw_xml.write(linea2);
+            }
+            bf_xml.close();
+            bw_xml.close();
+            System.out.println("Fichero xml creado correctamente");
         }
-        bf_html.close();
-        bw_html.close();
-        System.out.println("Fichero html creado correctamente");
-        String linea2;
-        while((linea2 = bf_xml.readLine())!=null){
-            bw_xml.write(linea2);
-        }
-        bf_xml.close();
-        bw_xml.close();
-        System.out.println("Fichero xml creado correctamente");
-
 
 
 
