@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.*;
+import java.nio.charset.Charset;
+
 
 
 public class Traer_Datos {
@@ -14,13 +16,15 @@ public class Traer_Datos {
     public void traerDatos(){
 
     try{
-        URL html = new URL("https://www.laopiniondemurcia.es/");
         URL xml = new URL("https://www.laopiniondemurcia.es/rss");
+        URLConnection conexion = new URL("https://www.pccomponentes.com/procesadores").openConnection();
+        conexion.addRequestProperty("User-Agent", "Mozilla");
+        conexion.connect();
 
         File fhtml = new File("fichero.html");
         File fxml = new File("fichero.xml");
 
-        BufferedReader bf_html = new BufferedReader(new InputStreamReader(html.openStream()));
+        BufferedReader bf_html = new BufferedReader(new InputStreamReader(conexion.getInputStream(), Charset.forName("UTF-8")));
         BufferedReader bf_xml = new BufferedReader(new InputStreamReader(xml.openStream()));
 
         BufferedWriter bw_html = new BufferedWriter(new FileWriter(fhtml));
