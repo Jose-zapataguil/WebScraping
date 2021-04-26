@@ -7,7 +7,9 @@ public class Main {
         Traer_Datos td = new Traer_Datos();
         td.traerDatos();
         Procesador p = new Procesador();
-        List<String[]> datos = p.procesarHTMLDecathlon();
+        List<String[]> datos = p.procesarRSS();
+        Exportar ex = new Exportar();
+        ex.exportarCSV(datos);
     }
 
 }

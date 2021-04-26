@@ -1,43 +1,40 @@
 
 import com.csvreader.CsvWriter;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Iterator;
 
 
-
-
 public class Exportar {
 
 
-    public static void exportarCSV(List<String[]> procesado) {
+    public void exportarCSV(List<String[]> procesado) {
 
-        String archivoCSV = "C:\\archivo.csv";
+        String archivoCSV = "archivo.csv";
 
         try {
 
             CsvWriter writer = new CsvWriter(archivoCSV);
 
-            writer.write("Título");
+            writer.write("Titulo");
             writer.write("Creador");
-            writer.write("Fecha de publicación");
-            writer.write("Categoría");
+            writer.write("Fecha de publicacion");
+            writer.write("Categoria");
 
 
             writer.endRecord();
 
-
-            Iterator i = procesado.iterator();
-            while(i.hasNext())
-            {
-                writer.write(i.next().toString());
+            for (int i = 0; i < procesado.size(); i++) {
+                for (int j = 0; j < procesado.get(i).length; j++) {
+                    writer.write(procesado.get(i)[j]);
+                }
                 writer.endRecord();
             }
-
             writer.close();
 
 
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
