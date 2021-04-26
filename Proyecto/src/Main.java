@@ -9,7 +9,7 @@ public class Main {
         Procesador p = new Procesador();
         List<String[]> datos = p.procesarRSS();
         Exportar ex = new Exportar();
-        ex.exportarCSV(datos);
+        ex.exportarCSV(datos, 1);
     }
 
 }
