@@ -74,6 +74,7 @@ public class Procesador {
             Elements articulos = div.getElementsByClass("c-product-card");
             for (org.jsoup.nodes.Element articulo : articulos) {
                 ArrayList<String> items = new ArrayList();
+                items.add(articulo.attr("data-category"));
                 items.add(articulo.attr("data-brand"));
                 items.add(articulo.attr("data-name"));
                 items.add(articulo.attr("data-price"));
