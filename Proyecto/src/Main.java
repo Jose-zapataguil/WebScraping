@@ -15,6 +15,7 @@ public class Main {
         System.out.println("2-HTML Ofertas Pccomponentes");
         System.out.println("3-HTML Ofertas Hombre Decathlon");
         System.out.println("4-Salir");
+        System.out.println();
         num = sc.nextInt();
         if (num == 1) {
             td.traerDatos("https://www.laopiniondemurcia.es/rss", "");
