@@ -2,6 +2,9 @@
   <artifact type="jar" name="Proyecto:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Proyecto_jar</output-path>
     <root id="archive" name="Proyecto.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Programa/META-INF/MANIFEST.MF" />
+      </element>
       <element id="module-output" name="Proyecto" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/javacsv.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/jsoup-1.13.1.jar" path-in-jar="/" />
