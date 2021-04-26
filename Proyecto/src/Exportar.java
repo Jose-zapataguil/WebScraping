@@ -1,5 +1,6 @@
 import com.csvreader.CsvWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 
@@ -13,13 +14,13 @@ public class Exportar {
 
         try {
 
-            CsvWriter writer = new CsvWriter(archivoCSV);
+            CsvWriter writer = new CsvWriter(archivoCSV, ',', StandardCharsets.UTF_8);
 
             if(numero==1){
             writer.write("Titulo");
+            writer.write("Categoria");
             writer.write("Creador");
             writer.write("Fecha de publicacion");
-            writer.write("Categoria");
             writer.endRecord();}
 
             else if(numero==2){
