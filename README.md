@@ -25,7 +25,7 @@ En el caso de ejecutar el programa desde IntelliJ por ejemplo, necesitaremos agr
 
   -JSOUP: https://jsoup.org/download
   
-  -JavaCSV:
+  -JavaCSV: http://www.java2s.com/Code/Jar/j/Downloadjavacsvjar.htm
   
 En caso de ejecutarlo con el fichero .jar ejecutable, solo necesitaremos tener Java instalado en nuestro ordenador(Para el caso anterior tambien es necesario).
 
@@ -55,6 +55,18 @@ Para explicar el funcionamiento del programa lo vamos a dividir en las 3 funcion
 
 -Exportación de datos.
 
-## Prueba de ejecución
+## Ejecucion desde cmd
+
+- Descargar el repositorio.
+- Descomprimir la carpeta descargada.
+- Dentro de la carpeta "Proyecto" hay otra carpeta llamada Programa que contiene el ejecutable .jar, llevala donde quieras.
+- Abres un cmd y escribes lo siguiente
+![imagen](https://user-images.githubusercontent.com/79518642/116208131-e06e4280-a740-11eb-8653-aae1e70eb3b3.png)
+- Al ejecutar ese comando se muestra un menu en el que tienes varias opciones
+- La opcion 1 genera un .csv a partir del FEED RSS de la página la opinion de Murcia con las columnas Titulo,Categoria,Creador,Fecha,Hora
+![imagen](https://user-images.githubusercontent.com/79518642/116208385-2b885580-a741-11eb-99e0-4bc25374bbf0.png)
+
+
+6) 
 
 
