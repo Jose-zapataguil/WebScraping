@@ -60,13 +60,14 @@ Para explicar el funcionamiento del programa lo vamos a dividir en las 3 funcion
 - Descargar el repositorio.
 - Descomprimir la carpeta descargada.
 - Dentro de la carpeta "Proyecto" hay otra carpeta llamada Programa que contiene el ejecutable .jar, llevala donde quieras.
-- Abres un cmd y escribes lo siguiente
-![imagen](https://user-images.githubusercontent.com/79518642/116208131-e06e4280-a740-11eb-8653-aae1e70eb3b3.png)
+- Abre un cmd y escribe lo siguiente
+- ![imagen](https://user-images.githubusercontent.com/79518642/116208131-e06e4280-a740-11eb-8653-aae1e70eb3b3.png)
 - Al ejecutar ese comando se muestra un menu en el que tienes varias opciones
-- La opcion 1 genera un .csv a partir del FEED RSS de la página la opinion de Murcia con las columnas Titulo,Categoria,Creador,Fecha,Hora
-![imagen](https://user-images.githubusercontent.com/79518642/116208385-2b885580-a741-11eb-99e0-4bc25374bbf0.png)
+- La opcion 1 genera un .csv a partir del FEED RSS de la página la opinion de Murcia.
+- ![imagen](https://user-images.githubusercontent.com/79518642/116208385-2b885580-a741-11eb-99e0-4bc25374bbf0.png)
+- ![imagen](https://user-images.githubusercontent.com/79518642/116210961-a81c3380-a743-11eb-8263-af30baca15c8.png)
+- La opcion 2 genera un .csv a partir del HTML de la pagina de ofertas de PCComponentes.
+- 
 
-
-6) 
 
 
