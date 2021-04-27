@@ -24,8 +24,8 @@ public class Traer_Datos {
             conexion.addRequestProperty("User-Agent", "Mozilla");
             conexion.connect();
             File fhtml = new File("fichero.html");
-            BufferedReader bf_html = new BufferedReader(new InputStreamReader(conexion.getInputStream(), Charset.forName("UTF-8")));
-            BufferedWriter bw_html = new BufferedWriter(new FileWriter(fhtml));
+            BufferedReader bf_html = new BufferedReader(new InputStreamReader(conexion.getInputStream(),  StandardCharsets.UTF_8));
+            BufferedWriter bw_html = new BufferedWriter(new FileWriter(fhtml, StandardCharsets.UTF_8));
             String linea;
             while ((linea = bf_html.readLine()) != null) {
                 bw_html.write(linea);
