@@ -21,6 +21,7 @@ public class Exportar {
             writer.write("Categoria");
             writer.write("Creador");
             writer.write("Fecha de publicacion");
+            writer.write("Hora de publicacion");
             writer.endRecord();}
 
             else if(numero==2){
