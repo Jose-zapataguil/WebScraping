@@ -25,7 +25,7 @@ En el caso de ejecutar el programa desde IntelliJ por ejemplo, necesitaremos agr
 
   -JSOUP: https://jsoup.org/download
   
-  -JavaCSV:
+  -JavaCSV: http://www.java2s.com/Code/Jar/j/Downloadjavacsvjar.htm
   
 En caso de ejecutarlo con el fichero .jar ejecutable, solo necesitaremos tener Java instalado en nuestro ordenador(Para el caso anterior tambien es necesario).
 
